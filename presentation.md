@@ -118,7 +118,7 @@ $$Z = re^{i\psi} = \frac{1}{N} \sum_{j=1}^N e^{i\theta_j}$$
 
 ---
 ```python
-# NumPy version
+# Core of NumPy version
 for i in range(steps):
     # Calculate Order Parameter r (Current state)
     z = np.mean(np.exp(1j * theta))
@@ -135,7 +135,7 @@ for i in range(steps):
 ```
 ---
 ```python
-# JAX version: replace for loop by lax.scan
+# Core of JAX version: replace for loop by lax.scan
 def simulation_step(theta, _):
     #---This block is similar to NumPy version---
     k1 = f(theta)
@@ -242,8 +242,6 @@ $$L = L_{PDE} + L_{BC} + L_{IC}$$
 | **Mesh** | Required | **Mesh-free** |
 | **Inverse Problems** | Complex Adjoint Methods | **Natural/Easy** |
 | **Error Control** | Well-understood | Harder to guarantee |
-
-![bg right:35% width:95%](https://bazhenov.me/images/pinn.png)
 
 ---
 
