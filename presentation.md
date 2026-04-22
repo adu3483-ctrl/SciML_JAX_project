@@ -95,7 +95,7 @@ National Tsing Hua University
 - Fireflies synchronizing; audience clapping in unison.
 - **Emergence**: Simple local rules $\to$ Sudden global order.
 
-![bg right:20% height:90%](Screenshot(3).png)
+![bg right:20% height:90%](./Screenshot(3).png)
 
 ---
 
@@ -114,7 +114,7 @@ def f(th):
 
 $$Z = re^{i\psi} = \frac{1}{N} \sum_{j=1}^N e^{i\theta_j}$$
 
-![bg right:20% height:90%](Screenshot(3).png)
+![bg right:20% height:90%](./Screenshot(3).png)
 
 ---
 ```python
@@ -175,13 +175,22 @@ In the JAX version:
 - **Scale**: $N=10,000$ oscillators handled as easily as $N=100$.
 
 ---
-### Final Result:
+**Time cost on laptop (i5-8250U CPU):**
 | 		|JAX+jit+scan|Numpy|
 |:------	|:------	|:------	|
 |N = 100	|1.0629s	|1.0103s	|
-|N = 500	|9.4828s	|26.3962s	|
 |N = 1000	|51.1063s	|134.5051s	|
-|N = 5000	|1428.3713s	|4101.0430s	|
+|N = 10000	|5362.2742s	|13673.8155s	|
+
+**Time cost on Colab (JAX uses T4 GPU):**
+| 		|JAX+jit+scan with compile|Kuramoto_Numpy|
+|:------	|:------	|:------	|
+|N = 100	|0.4526s	|1.6549s	|
+|N = 500	|1.0035s	|62.6158s	|
+|N = 10000	|6.7081s	|	|
+
+<!-- Numpy uses sever CPU when running on Colab, so it performed even worse than using laptop CPU. -->
+
 ---
 
 # IV. Extending to PDEs: Method of Lines
